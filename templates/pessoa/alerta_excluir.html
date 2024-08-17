@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Remoção</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+            Deseja realmente excluir {{ pessoa.nome }}?
+        </div>
+        <form id="remove-form" method="post" onsubmit="return confirmRemoval();">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <a href="{% url 'read' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+
+    <script>
+        function confirmRemoval() {
+            return confirm('Deseja realmente excluir esta pessoa?');
+        }
+    </script>
+</body>
+</html>

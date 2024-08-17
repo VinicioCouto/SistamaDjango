@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h1>Adicionar novo usuário</h1>
+<a href="/"><button class="btn btn-outline-dark">Voltar</button></a><br><br>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-primary" value="Salvar">
+</form>
+{% endblock %}
